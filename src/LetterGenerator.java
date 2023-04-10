@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +29,7 @@ import java.util.List;
 
 public class LetterGenerator {
 
-  private HashMap<Integer, List<String>> letters = new HashMap<>(){{
+  private final HashMap<Integer, List<String>> letters = new HashMap<>(){{
         put(2, Arrays.asList("a", "b", "c"));
         put(3, Arrays.asList("d", "e", "f"));
         put(4, Arrays.asList("g", "h", "i"));
@@ -39,7 +40,44 @@ public class LetterGenerator {
         put(9, Arrays.asList("w", "x", "y", "z"));
     }};
 
+  private final List<Word> prefixWords = new ArrayList<>();
+  private final List<Word> suffixWords = new ArrayList<>();
+  private final List<Word> sevenLetterWords = new ArrayList<>();
+
+    public List<Word> letterGeneration(Phone number){
+      List<Word> allWords = new ArrayList<>();
+
+      //suffix Combinations
+      for (String s: letters.get(number.preFix/100)) {
+          for (String str: letters.get((number.preFix % 100)/10)){
+              for (String sr: letters.get(number.preFix % 10)) {
+                  this.prefixWords.add(new Word(s + str + sr));
+              }
+          }
+      }
+      //prefix Combinations
+      for (String s: letters.get(number.suffix/1000)) {
+          for (String str: letters.get((number.suffix % 1000)/100)){
+              for (String sr: letters.get((number.suffix % 100)/10)) {
+                  for (String st: letters.get(number.suffix % 10)) {
+                      this.suffixWords.add(new Word(s + str + sr + st));
+                  }
+              }
+          }
+      }
+
+      for (Word w: prefixWords) {
+          for (Word wo: suffixWords) {
+              this.sevenLetterWords.add(new Word(w.word + wo.word));
+          }
+      }
+      allWords.addAll(prefixWords);
+      allWords.addAll(suffixWords);
+      allWords.addAll(sevenLetterWords);
+       return allWords;
+      }
+  }
 //if the number has a 0 or 1 then we know it won't generate a word
 //So we are gonna check for that first
 
-}
+
