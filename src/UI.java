@@ -6,6 +6,36 @@
 *
 * */
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+
 public class UI {
 
+
+public void printTable(HashMap<Integer, List<Word>> valid, Phone number){
+    System.out.println("|        3 Letter        |        4 Letter        |        7 Letter        |");
+    System.out.println("----------------------------------------------------------------------------");
+
+    for(int i = 0; i < valid.size(); i ++){
+        String begining = number.number.substring(0, 3) + "-";
+
+        String first = "            ";
+        String second ="            ";
+        String third = "            ";
+
+       if(i < valid.get(3).size()) {
+           first = (begining + valid.get(3).get(i).word.toUpperCase(Locale.ROOT) + "-" + number.suffix) ;
+       }
+        if(i < valid.get(4).size()) {
+            second = (begining + number.preFix + "-" + valid.get(4).get(i).word.toUpperCase(Locale.ROOT));
+        }
+        if(i < valid.get(7).size()) {
+            String w = valid.get(7).get(i).word.toUpperCase(Locale.ROOT);
+            third = (begining + w.substring(0, 3) + "-" + w.substring(3, 7));
+        }
+
+        System.out.println("|      " + first + "      |      " + second + "      |      " + third +"      |");
+    }
+}
 }

@@ -1,10 +1,12 @@
 public class Word {
     String word;
+    String pre;
+
     int relevance = 0;
-    boolean isWord;
 
     public Word(String word) {
         this.word = word;
+        pre = word.substring(0, 3);
     }
 
     public void incRelevance(){
