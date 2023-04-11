@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.List;
-
 public class Main {
 
 
@@ -13,7 +12,8 @@ public class Main {
         LetterGenerator testGenerator = new LetterGenerator(testPhone);
         HashMap<Integer, List<Word>> t = dictionary.dictionaryQuery(testGenerator.getCombinations());
         UI testRun = new UI();
-        testRun.printTable(t, testPhone);
+        UI.main(args);
+       // testRun.printTable(t, testPhone);
 
     }
 

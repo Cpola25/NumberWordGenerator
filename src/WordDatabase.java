@@ -3,9 +3,21 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
- * Will Handle Querying the Database
- * Will Generate the List of Valid words from the letter Combinations
- *I can probably shorten the search by going to a specific line
+ * Will be the class responsible for direct querying of the database
+ * Will store database into a hashmap with keys representing every unique 3 letter prefix and
+ * the values representing an ArrayList of words starting with that prefix
+ *
+ * Using this class we can pass the resulting combination list from the LetterGenerator class to the
+ * dictioraryQuery method which will return a smalled hashmap composed of the letter combinations that
+ * are valid words
+ *
+ *
+ * What I still want to do:
+ *
+ * I want to use a singleton pattern on the dictionary hashmap so we don't read the entire database everytime a
+ * new instance of WordDatabase is created
+ *
+ *
  * */
 
 public class WordDatabase {

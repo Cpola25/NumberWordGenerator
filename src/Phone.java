@@ -1,19 +1,16 @@
 
 /**
- * Area Core Present: Boolean value [ True or False ]
+ * This class defines a Phone number object.
+ * A Phone number has several attributes which include an Area Code, Prefix, and Suffix
+ * Each of these attributes are defined by the following specifications:
  * Area Code: 3-digit number [200 … 999] except 911
  * Prefix: 3-digit number not beginning with 0 or 1
  * Suffix: 4-digit number
+ *
+ * This class also has its own unique Exception which will let us know if we have an issue with the
+ * phone number inputted and if so, what the issue is.
+ *
  * */
-//(409)600-1992
-//Have a try catch in the UI for throwing the not a phone number exception
-
-//this is a custom exception to flag an invalid number input
- class invalidNumberException extends Exception{
-    public invalidNumberException(String str){
-        super(str);
-    }
-}
 
 public class Phone {
 
@@ -50,5 +47,12 @@ public class Phone {
            throw new invalidNumberException("Number is not long enough: Must be 10 Digits");
         }
 
+    }
+
+
+     class invalidNumberException extends Exception{
+        public invalidNumberException(String str){
+            super(str);
+        }
     }
 }
