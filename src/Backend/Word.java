@@ -1,3 +1,4 @@
+package Backend;
 
 /**
  * This class defines a Word Object

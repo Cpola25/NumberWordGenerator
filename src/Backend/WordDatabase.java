@@ -1,3 +1,5 @@
+package Backend;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -20,7 +22,7 @@ import java.util.*;
  *
  * */
 
-public class WordDatabase {
+public class WordDatabase{
 
     // This is where we link our database
     private final File database = new File("./database.txt");

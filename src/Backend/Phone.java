@@ -1,4 +1,4 @@
-
+package Backend;
 /**
  * This class defines a Phone number object.
  * A Phone number has several attributes which include an Area Code, Prefix, and Suffix
@@ -14,14 +14,13 @@
 
 public class Phone {
 
-
     String number = "";
     boolean areaCore;
     int areaCode ;
     int preFix;
     int suffix;
 
-    public Phone(String number) throws invalidNumberException{
+    public Phone(String number) throws InvalidNumberException{
         if(number.length() == 10){
             int code = Integer.parseInt(number.substring(0, 3));
             int prefix = Integer.parseInt(number.substring(3, 6));
@@ -31,27 +30,28 @@ public class Phone {
                 this.areaCode = code;
                 this.areaCore = true;
             } else {
-                throw new invalidNumberException("Invalid Area Code: 200-999 except 911 ");
+                throw new InvalidNumberException("Invalid Area Code: 200-999 except 911 ");
             }
 
             if(prefix > 100) {
                 this.preFix = prefix;
             }else {
-                throw new invalidNumberException("Invalid Prefix: cannot start with 0 or 1 ");
+                throw new InvalidNumberException("Invalid Prefix: cannot start with 0 or 1 ");
             }
 
             this.suffix = suff;
             this.number = number;
 
         }else {
-           throw new invalidNumberException("Number is not long enough: Must be 10 Digits");
+           throw new InvalidNumberException("Number is not long enough: Must be 10 Digits");
         }
 
     }
 
 
-     class invalidNumberException extends Exception{
-        public invalidNumberException(String str){
+
+     class InvalidNumberException extends Exception{
+        public InvalidNumberException(String str){
             super(str);
         }
     }
