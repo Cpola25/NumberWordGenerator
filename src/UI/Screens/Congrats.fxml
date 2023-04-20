@@ -34,12 +34,12 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Text fx:id="resultNumber" fill="#9e0202" layoutX="256.0" layoutY="161.0" onMouseMoved="#setTotal" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="58.0">
+            <Text fx:id="numberOfResults" fill="#9e0202" layoutX="256.0" layoutY="161.0" onMouseMoved="#setTotal" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="58.0">
                <font>
                   <Font size="29.0" />
                </font>
             </Text>
-            <Button layoutX="252.0" layoutY="262.0" mnemonicParsing="false" onAction="#continueToDisplay" style="-fx-background-color: firebrick;" text="Continue" textFill="WHITE" />
+            <Button defaultButton="true" layoutX="252.0" layoutY="262.0" mnemonicParsing="false" onAction="#continueToDisplay" style="-fx-background-color: firebrick;" text="Continue" textFill="WHITE" />
             <Text layoutX="230.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Matches!" wrappingWidth="127.99951171875">
                <font>
                   <Font size="29.0" />

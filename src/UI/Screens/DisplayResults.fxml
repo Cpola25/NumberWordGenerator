@@ -1,207 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.UI">
+<GridPane prefHeight="401.0" prefWidth="605.0" style="-fx-background-color: black; -fx-border-color: red;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.UI">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="607.0" minWidth="10.0" prefWidth="121.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="607.0" minWidth="10.0" prefWidth="367.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.0" minWidth="0.0" prefWidth="121.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="237.0" minHeight="10.0" prefHeight="237.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <GridPane prefHeight="401.0" prefWidth="605.0" style="-fx-background-color: black; -fx-border-color: red; -fx-border-style: solid inside;">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="607.0" minWidth="10.0" prefWidth="121.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="607.0" minWidth="10.0" prefWidth="367.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.0" minWidth="0.0" prefWidth="121.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="237.0" minHeight="10.0" prefHeight="237.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: red; -fx-border-width: 2;" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: red; -fx-border-width: 2;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <VBox fx:id="fourLetter" layoutX="133.0" layoutY="64.0" prefHeight="151.0" prefWidth="100.0">
                <children>
-                  <VBox layoutX="133.0" layoutY="64.0" prefHeight="151.0" prefWidth="100.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" prefWidth="93.0" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="21.0" layoutY="64.0" prefHeight="151.0" prefWidth="100.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="243.0" layoutY="64.0" prefHeight="151.0" prefWidth="100.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="%key.unspecified">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </CheckBox>
-                     </children>
-                  </VBox>
-                  <Text layoutX="42.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 Letter" />
-                  <Text layoutX="153.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 Letter" />
-                  <Text layoutX="272.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7 Letter" />
-                  <Separator layoutY="34.0" prefHeight="4.0" prefWidth="365.0" />
-                  <Separator layoutX="117.0" layoutY="3.0" orientation="VERTICAL" prefHeight="231.0" prefWidth="6.0" />
-                  <Separator layoutX="234.0" layoutY="3.0" orientation="VERTICAL" prefHeight="231.0" prefWidth="6.0" />
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" prefWidth="93.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
                </children>
-            </Pane>
-            <Button mnemonicParsing="false" style="-fx-background-color: white;" text="New" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Text fill="#eb5454" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Favorites then Hit New to Refresh Options" GridPane.columnIndex="1" />
+            </VBox>
+            <VBox fx:id="threeLetter" layoutX="13.0" layoutY="64.0" prefHeight="151.0" prefWidth="100.0">
+               <children>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </VBox>
+            <VBox fx:id="sevenLetter" layoutX="243.0" layoutY="64.0" prefHeight="151.0" prefWidth="100.0">
+               <children>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </VBox>
+            <Text fill="#b20707" layoutX="42.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 Letter" />
+            <Text layoutX="153.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 Letter">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.75" green="0.0520833320915699" blue="0.0520833320915699" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.007518796992481203">
+                           <color>
+                              <Color red="0.75" green="0.0520833320915699" blue="0.0520833320915699" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.14711257815361023" green="0.9078947305679321" blue="0.7430586218833923" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill></Text>
+            <Text fill="#55c6a4" layoutX="272.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7 Letter" />
+            <Separator layoutY="34.0" prefHeight="4.0" prefWidth="365.0" />
+            <Separator layoutX="119.0" layoutY="3.0" orientation="VERTICAL" prefHeight="231.0" prefWidth="6.0" />
+            <Separator layoutX="234.0" layoutY="3.0" orientation="VERTICAL" prefHeight="231.0" prefWidth="6.0" />
          </children>
-      </GridPane>
+      </Pane>
+      <Button fx:id="refresh" disable="true" mnemonicParsing="false" onAction="#refreshList" style="-fx-background-color: firebrick;" text="New" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="140.0" />
+         </GridPane.margin></Button>
+      <Text fill="#d01919" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Favorites then Hit New to Refresh Options" textAlignment="CENTER" wrappingWidth="353.64453125" GridPane.columnIndex="1">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Button fx:id="load" alignment="TOP_LEFT" defaultButton="true" mnemonicParsing="false" onAction="#loadFirstList" text="Load" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <GridPane.margin>
+            <Insets left="200.0" />
+         </GridPane.margin>
+      </Button>
    </children>
-</AnchorPane>
+</GridPane>

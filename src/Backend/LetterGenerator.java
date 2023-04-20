@@ -42,27 +42,30 @@ public class LetterGenerator {
 
     private void combinationGenerator(Phone number) {
         //suffix Combinations
-        for (String s : letters.get(number.preFix / 100)) {
-            for (String str : letters.get((number.preFix % 100) / 10)) {
-                for (String sr : letters.get(number.preFix % 10)) {
+        int numberPrefix = number.getPreFix();
+        int numberSuffix = number.getSuffix();
+
+        for (String s : letters.get(numberPrefix / 100)) {
+            for (String str : letters.get((numberPrefix % 100) / 10)) {
+                for (String sr : letters.get(numberPrefix % 10)) {
                     this.combinations.get(3).add(new Word(s + str + sr));
                 }
             }
         }
 
         //prefix Combinations
-        for (String s : letters.get(number.suffix / 1000)) {
-            for (String str : letters.get((number.suffix % 1000) / 100)) {
-                for (String sr : letters.get((number.suffix % 100) / 10)) {
-                    for (String st : letters.get(number.suffix % 10)) {
+        for (String s : letters.get(numberSuffix / 1000)) {
+            for (String str : letters.get((numberSuffix % 1000) / 100)) {
+                for (String sr : letters.get((numberSuffix % 100) / 10)) {
+                    for (String st : letters.get(numberSuffix % 10)) {
                         this.combinations.get(4).add(new Word(s + str + sr + st));
                     }
                 }
             }
         }
-        for (Word w : combinations.get(3)) {
-            for (Word wo : combinations.get(4)) {
-                this.combinations.get(7).add(new Word(w.word + wo.word));
+        for (Word threeLetterWord : combinations.get(3)) {
+            for (Word fourLetterWord : combinations.get(4)) {
+                this.combinations.get(7).add(new Word(threeLetterWord.getWord() + fourLetterWord.getWord()));
             }
         }
 

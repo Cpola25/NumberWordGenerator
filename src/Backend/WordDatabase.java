@@ -60,31 +60,34 @@ public class WordDatabase{
     //This will take the map generated from the LetterGenerator class to filter out the non-valid words
    public HashMap<Integer, List<Word>> dictionaryQuery(HashMap<Integer, List<Word>> combos){
 
-       for (Word w:combos.get(3)) {
-           if(dictionary.containsKey(w.pre)){
-               for (Word wor: dictionary.get(w.pre)) {
-                   if(Objects.equals(w.word, wor.word)){
-                       results.get(3).add(w);
+       for (Word letterCombination:combos.get(3)) {
+           String currentWordPrefix = letterCombination.getPre();
+           if(dictionary.containsKey(currentWordPrefix)){
+               for (Word dictionaryWord : dictionary.get(currentWordPrefix)) {
+                   if(Objects.equals(letterCombination.getWord(), dictionaryWord.getWord())){
+                       results.get(3).add(letterCombination);
                    }
                }
            }
        }
 
-       for (Word w:combos.get(4)) {
-           if(dictionary.containsKey(w.pre)){
-               for (Word wor: dictionary.get(w.pre)) {
-                   if(Objects.equals(w.word, wor.word)){
-                       results.get(4).add(w);
+       for (Word letterCombination:combos.get(4)) {
+           String currentWordPrefix = letterCombination.getPre();
+           if(dictionary.containsKey(currentWordPrefix)){
+               for (Word dictionaryWord : dictionary.get(currentWordPrefix)) {
+                   if(Objects.equals(letterCombination.getWord(), dictionaryWord.getWord())){
+                       results.get(4).add(letterCombination);
                    }
                }
            }
        }
 
-       for (Word w:combos.get(7)) {
-           if(dictionary.containsKey(w.pre)){
-               for (Word wor: dictionary.get(w.pre)) {
-                   if(Objects.equals(w.word, wor.word)){
-                       results.get(7).add(w);
+       for (Word letterCombination:combos.get(7)) {
+           String currentWordPrefix = letterCombination.getPre();
+           if(dictionary.containsKey(currentWordPrefix)){
+               for (Word dictionaryWord : dictionary.get(currentWordPrefix)) {
+                   if(Objects.equals(letterCombination.getWord(), dictionaryWord.getWord())){
+                       results.get(7).add(letterCombination);
                    }
                }
            }

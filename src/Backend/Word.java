@@ -11,16 +11,31 @@ package Backend;
  * */
 
 public class Word {
-    String word;
-    String pre;
-    int relevance = 0;
+    private String word;
+    private String pre;
+    private int relevance = 0;
 
     public Word(String word) {
         this.word = word;
         pre = word.substring(0, 3);
     }
 
+    /************************************************** Getters ***************************************************************/
+
+    public String getPre() {
+        return pre;
+    }
+
+    public int getRelevance() {
+        return relevance;
+    }
+
+    public String getWord() {
+        return word;
+    }
+    /*************************************************** Other Methods ********************************************************/
     public void incRelevance(){
         this.relevance += 1;
     }
+
 }

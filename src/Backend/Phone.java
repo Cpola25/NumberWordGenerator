@@ -14,11 +14,13 @@ package Backend;
 
 public class Phone {
 
-    String number = "";
-    boolean areaCore;
-    int areaCode ;
-    int preFix;
-    int suffix;
+    private String number = "";
+    private int areaCode ;
+    private int preFix;
+    private int suffix;
+
+
+    /**************************************************  Constructor  ***************************************************************/
 
     public Phone(String number) throws InvalidNumberException{
         if(number.length() == 10){
@@ -28,7 +30,6 @@ public class Phone {
 
             if((code >= 200 && code <= 999) && code !=911){
                 this.areaCode = code;
-                this.areaCore = true;
             } else {
                 throw new InvalidNumberException("Invalid Area Code: 200-999 except 911 ");
             }
@@ -48,9 +49,47 @@ public class Phone {
 
     }
 
+    /************************************************** Getters ***************************************************************/
+    public int getAreaCode() {
+        return areaCode;
+    }
 
+    public int getPreFix() {
+        return preFix;
+    }
 
-     class InvalidNumberException extends Exception{
+    public int getSuffix() {
+        return suffix;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    /************************************************** Other Methods ***************************************************************/
+    public String generateNumberString(int letterSize, String word){
+        String number =" ";
+
+        switch(letterSize){
+            case 3:
+                number = this.areaCode + "-" + word + "-" + this.suffix;
+                break;
+            case 4:
+                number = this.areaCode + "-" + this.preFix + "-" + word;
+                break;
+            case 7:
+                number = this.areaCode + "-" + word.substring(0, 3) + "-" + word.substring(3,7);
+                break;
+            default:
+                break;
+
+        }
+
+        return number;
+    }
+
+    /************************************************** Exception  ***************************************************************/
+    class InvalidNumberException extends Exception{
         public InvalidNumberException(String str){
             super(str);
         }

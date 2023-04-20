@@ -12,9 +12,9 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black; -fx-border-color: red;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.UI">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="227.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="227.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Images/Template-Merch_CathulhuHoodie.png" />
+            <Image url="@../../Images/logo.png" />
          </image>
       </ImageView>
       <Text layoutX="205.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: DesdemonaDesdemona;" text="NumberPhrase">
@@ -43,10 +43,11 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Text fill="GREY" layoutX="14.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contributors:" />
-      <Text fill="#808080" layoutX="14.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Backend: Lizbeth Trujillo" />
-      <Text fill="GREY" layoutX="14.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Frontend: Jessica Rodriguez" />
-      <Text fill="GREY" layoutX="13.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Database: Victoria Kitchen" />
-      <Button layoutX="266.0" layoutY="264.0" mnemonicParsing="false" onAction="#switchToEnterNumber" style="-fx-background-color: firebrick;" text="Continue" textFill="WHITE" />
+      <Text fill="GREY" layoutX="14.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contributors:" />
+      <Text fill="#808080" layoutX="13.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Backend: Lizbeth Trujillo" />
+      <Text fill="GREY" layoutX="14.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Frontend: Jessica Rodriguez" />
+      <Text fill="GREY" layoutX="13.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Database: Victoria Kitchen" />
+      <Button defaultButton="true" layoutX="266.0" layoutY="264.0" mnemonicParsing="false" onAction="#switchToEnterNumber" style="-fx-background-color: firebrick;" text="Continue" textFill="WHITE" />
+      <Text fill="GREY" layoutX="13.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test Automation: Nicholas Victoria" />
    </children>
 </AnchorPane>
