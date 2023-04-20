@@ -11,9 +11,8 @@ package Backend;
  * */
 
 public class Word {
-    private String word;
-    private String pre;
-    private int relevance = 0;
+    private final String word;
+    private final String pre;
 
     public Word(String word) {
         this.word = word;
@@ -25,17 +24,9 @@ public class Word {
     public String getPre() {
         return pre;
     }
-
-    public int getRelevance() {
-        return relevance;
-    }
-
     public String getWord() {
         return word;
     }
-    /*************************************************** Other Methods ********************************************************/
-    public void incRelevance(){
-        this.relevance += 1;
-    }
+
 
 }

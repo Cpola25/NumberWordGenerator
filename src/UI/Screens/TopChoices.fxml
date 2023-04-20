@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
@@ -10,9 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black; -fx-border-color: red;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.UI">
+<AnchorPane onMouseEntered="#displayTen" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black; -fx-border-color: red;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.UI">
    <children>
-      <Text layoutX="167.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Top Ten Choices!!">
+      <Text layoutX="145.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Top Choices!!" textAlignment="CENTER" wrappingWidth="292.61962890625">
          <font>
             <Font size="27.0" />
          </font>
@@ -21,19 +20,24 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.5657894611358643" green="0.010477582924067974" blue="0.010477582924067974" />
+                        <Color red="1.0" green="0.013888888992369175" blue="0.013888888992369175" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.007532956685499058">
+                     <color>
+                        <Color red="1.0" green="0.013888888992369175" blue="0.013888888992369175" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.3114035129547119" green="0.9342105388641357" blue="0.8719298243522644" />
+                        <Color green="1.0" blue="0.8833333253860474" />
                      </color>
                   </Stop>
                </stops>
             </LinearGradient>
          </fill>
       </Text>
-      <VBox fx:id="topTen" layoutX="204.0" layoutY="68.0" onMouseMoved="#displayTen" prefHeight="200.0" prefWidth="100.0">
+      <VBox fx:id="topTen" layoutX="204.0" layoutY="68.0" prefHeight="200.0" prefWidth="100.0">
          <children>
             <Text fill="#f5f5f5" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="163.21630859375">
                <font>
@@ -87,7 +91,6 @@
             </Text>
          </children>
       </VBox>
-      <ButtonBar layoutX="260.0" layoutY="347.0" prefHeight="40.0" prefWidth="78.0" />
     <Button defaultButton="true" layoutX="276.0" layoutY="332.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: firebrick;" text="Exit" textFill="WHITE" />
    </children>
 </AnchorPane>

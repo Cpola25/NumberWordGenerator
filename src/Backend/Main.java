@@ -4,7 +4,6 @@ import UI.UI;
 import javafx.application.Application;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,13 +22,7 @@ public class Main{
     public static LetterGenerator combinations;
     public static HashMap<Integer, List<Word>> wordList;
     public static int listSize;
-    public  static RelevanceGenerator getRelevant = new RelevanceGenerator();
 
-    static HashMap<Integer, List<Word>>  t = new HashMap<>(){{
-        put(3, new ArrayList<>());
-        put(4, new ArrayList<>());
-        put(7, new ArrayList<>());
-    }};
     public static void main(String[] args) throws Exception {
 
         UI runApplication = new UI();

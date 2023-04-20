@@ -11,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -46,21 +45,14 @@ public class UI extends Application{
         private Parent root;
         static ArrayList<String> finalTopTenWords = new ArrayList<>();
 
-
     /************************************************** Switch Screen Methods ***************************************************************/
 
-    public void switchToEnterNumber(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("./Screens/EnterNumber.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
     public void switchToCongrats(ActionEvent event)throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("./Screens/Congrats.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+
         stage.show();
     }
     public void switchToDisplayResults(ActionEvent event)throws IOException {
@@ -71,7 +63,7 @@ public class UI extends Application{
         stage.show();
     }
     public void switchToTopTen(ActionEvent event)throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("./Screens/TopTen.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("./Screens/TopChoices.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -90,8 +82,7 @@ public class UI extends Application{
         try{
             Main.setPhoneNumber(new Phone(number.getText())); //Sets Phone Object in the Main class
             Main.setCombinations(); // Sets the combinations object in the Main class
-            Main.setWordList(); // Sets the combinations object in the Main class
-
+            Main.setWordList(); // Sets the wordList object in the Main class
             switchToCongrats(event); //Switched the screen to the Congrats page
         }catch(Exception e){
             errorMessage.setText(String.valueOf(e)); // if there is an error then it will be displayed to help the user update their input
@@ -100,7 +91,7 @@ public class UI extends Application{
 
     /************************************************** Congrats Screen ***************************************************************/
     @FXML
-    private Text numberOfResults;
+    private Text numberOfResults = new Text();
 
     //This will let us get the total number of matched that were found so we can display
     public void setTotal(){
@@ -120,11 +111,6 @@ public class UI extends Application{
     private VBox fourLetter;
     @FXML
     private VBox sevenLetter;
-    @FXML
-    private Button load;
-    @FXML
-    private Button refresh;
-
 
     ArrayList<Word> threeLetterValidWords;
     ArrayList<Word> fourLetterValidWords;
@@ -134,17 +120,6 @@ public class UI extends Application{
     List<Node> fourLetterVboxNodes;
     List<Node> sevenLetterVboxNodes;
 
-    //Loads first round of words
-    public void loadFirstList(){
-
-
-        loadMoreWords();
-
-        refresh.setDisable(false);
-        load.setDefaultButton(false);
-        refresh.setDefaultButton(true);
-        load.setDisable(true);
-    }
 
     public void loadMoreWords(){
         threeLetterValidWords = (ArrayList<Word>) Main.wordList.get(3);
@@ -175,46 +150,11 @@ public class UI extends Application{
         }
     }
     public void refreshList(ActionEvent event){
-
-
-        for(int i = 0; i < 10; i++){
-            //gets child checkboxes from the VBox parent
-             CheckBox currentThreeLetterCheckBox = (CheckBox) threeLetterVboxNodes.get(i);
-            //if the box is not selected and it has text remove it from word list
-            if(!currentThreeLetterCheckBox.isSelected() && !Objects.equals(currentThreeLetterCheckBox.getText(), "")){
-                Main.wordList.get(3).removeIf(w -> Objects.equals(currentThreeLetterCheckBox.getAccessibleText(), w.getWord()));
-                //currentThreeLetterCheckBox.setText("");
-            }else{
-                currentThreeLetterCheckBox.setSelected(false);
-            }
-
-             CheckBox currentFourLetterCheckBox = (CheckBox) fourLetterVboxNodes.get(i);
-            if(!currentFourLetterCheckBox.isSelected() && !Objects.equals(currentFourLetterCheckBox.getText(), "")){
-                Main.wordList.get(4).removeIf(w -> Objects.equals(currentFourLetterCheckBox.getAccessibleText(), w.getWord()));
-                //currentFourLetterCheckBox.setText("");
-            }else{
-                currentFourLetterCheckBox.setSelected(false);
-            }
-
-           CheckBox currentSevenLetterCheckBox = (CheckBox) sevenLetterVboxNodes.get(i);
-            if(!currentSevenLetterCheckBox.isSelected() && !Objects.equals(currentSevenLetterCheckBox.getText(), "")){
-                Main.wordList.get(7).removeIf(w -> Objects.equals(currentSevenLetterCheckBox.getAccessibleText(), w.getWord()));
-                //currentFourLetterCheckBox.setText("");
-            }else{
-                currentSevenLetterCheckBox.setSelected(false);
-            }
-            currentThreeLetterCheckBox.setText("");
-            currentFourLetterCheckBox.setText("");
-            currentSevenLetterCheckBox.setText("");
-        }
-
-        loadMoreWords();
-
         int firstListSize = Main.wordList.get(3).size();
         int secondListSize = Main.wordList.get(4).size();
         int thirdListSize = Main.wordList.get(7).size();
 
-        if(( firstListSize + secondListSize + thirdListSize) < 11){
+        if(( firstListSize + secondListSize + thirdListSize) < 11 || Main.listSize < 11){
 
             if(firstListSize !=0)
             for (Node currentCheckBox: threeLetterVboxNodes) {
@@ -223,6 +163,7 @@ public class UI extends Application{
                     UI.finalTopTenWords.add(checkBox.getText());
             }
 
+            //selection disappeared check again
             if(secondListSize !=0)
             for (Node currentCheckBox: fourLetterVboxNodes) {
                 CheckBox checkBox = (CheckBox) currentCheckBox;
@@ -236,8 +177,40 @@ public class UI extends Application{
                 if(!Objects.equals(checkBox.getText(), ""))
                     UI.finalTopTenWords.add(checkBox.getText());
             }
-
             continueTopTen(event);
+        }else{
+            for(int i = 0; i < 10; i++){
+                //gets child checkboxes from the VBox parent
+                CheckBox currentThreeLetterCheckBox = (CheckBox) threeLetterVboxNodes.get(i);
+                //if the box is not selected and it has text remove it from word list
+                if(!currentThreeLetterCheckBox.isSelected() && !Objects.equals(currentThreeLetterCheckBox.getText(), "")){
+                    Main.wordList.get(3).removeIf(w -> Objects.equals(currentThreeLetterCheckBox.getAccessibleText(), w.getWord()));
+                    //currentThreeLetterCheckBox.setText("");
+                }else{
+                    currentThreeLetterCheckBox.setSelected(false);
+                }
+
+                CheckBox currentFourLetterCheckBox = (CheckBox) fourLetterVboxNodes.get(i);
+                if(!currentFourLetterCheckBox.isSelected() && !Objects.equals(currentFourLetterCheckBox.getText(), "")){
+                    Main.wordList.get(4).removeIf(w -> Objects.equals(currentFourLetterCheckBox.getAccessibleText(), w.getWord()));
+                    //currentFourLetterCheckBox.setText("");
+                }else{
+                    currentFourLetterCheckBox.setSelected(false);
+                }
+
+                CheckBox currentSevenLetterCheckBox = (CheckBox) sevenLetterVboxNodes.get(i);
+                if(!currentSevenLetterCheckBox.isSelected() && !Objects.equals(currentSevenLetterCheckBox.getText(), "")){
+                    Main.wordList.get(7).removeIf(w -> Objects.equals(currentSevenLetterCheckBox.getAccessibleText(), w.getWord()));
+                    //currentFourLetterCheckBox.setText("");
+                }else{
+                    currentSevenLetterCheckBox.setSelected(false);
+                }
+                currentThreeLetterCheckBox.setText("");
+                currentFourLetterCheckBox.setText("");
+                currentSevenLetterCheckBox.setText("");
+            }
+
+            loadMoreWords();
         }
 
     }
@@ -274,14 +247,13 @@ public class UI extends Application{
     @Override
     public void start(Stage stage) throws Exception {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("./Screens/StartUp.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("./Screens/EnterNumber.fxml")));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
 public static void main(String[] args){
