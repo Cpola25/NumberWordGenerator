@@ -1,7 +1,7 @@
 # NumberWordGenerator
 Software Engineering Project: NumberPhrase
 
-###Team:
+### Team:
 
 Role  | Name
 ------------- | -------------
@@ -38,18 +38,18 @@ To get started with our project NumberPhrase, please follow these steps:
 - Clone the project from the GitHub repository
 - Install Java and any necessary dependencies
 
-####Usage
+#### Usage
 
 - Run the application using your preferred Java IDE or through the command line
 - Follow the menu-driven interface to enter a phone number and generate a list of possible English words to represent the number
 
-####Documentation
+#### Documentation
 
 - The project includes a use-case diagram, class diagram, interaction diagram, state chart, and activity diagram to help understand its design and functionality.
 - Any assumptions or limitations made while developing the models are documented in the report.
 - Black-box testing has been performed to ensure the software is functioning as expected
 
-####Data Persistence
+#### Data Persistence
 
 Data persistence has been achieved using the Java file system and object serialization, ensuring that data is saved and can be retrieved even after the program is closed.
 We hope that this software will be useful for anyone looking to find eye-catching words to represent their phone numbers. If you have any questions or feedback, please feel free to contact us.
