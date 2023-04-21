@@ -28,7 +28,7 @@ public class Main{
         UI runApplication = new UI();
         Application.launch(UI.class, args);
         //This is setting the Number Object
-
+        //get number and only retrieve the integers
 
     }
 

@@ -69,7 +69,13 @@ public class UI extends Application{
         stage.setScene(scene);
         stage.show();
     }
-
+    public void switchTeam(ActionEvent event)throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("./Screens/Credits.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
    /************************************************** Enter Number Screen ***************************************************************/
 
    @FXML
@@ -239,11 +245,16 @@ public class UI extends Application{
         }
     }
 
+
+    /**************************************************      Credits     ***************************************************************/
+
+
+
+
     public void exit(ActionEvent event){
         Platform.exit();
     }
     /**************************************************      Other     ***************************************************************/
-
     @Override
     public void start(Stage stage) throws Exception {
         try {

@@ -10,15 +10,8 @@ import java.util.*;
  * the values representing an ArrayList of words starting with that prefix
  *
  * Using this class we can pass the resulting combination list from the LetterGenerator class to the
- * dictioraryQuery method which will return a smalled hashmap composed of the letter combinations that
+ * dictioraryQuery method which will return a smaller hashmap composed of the letter combinations that
  * are valid words
- *
- *
- * What I still want to do:
- *
- * I want to use a singleton pattern on the dictionary hashmap so we don't read the entire database everytime a
- * new instance of WordDatabase is created
- *
  *
  * */
 
@@ -31,7 +24,7 @@ public class WordDatabase{
     //This is where we will store the words from the database
     private final HashMap<String, List<Word>> dictionary;
 
-    //This will be the list with all of the valid words that can be generated from the number
+    //This will be the list with all the valid words that can be generated from the number
     private HashMap<Integer, List<Word>> results = new HashMap<>(){{
         put(3, new ArrayList<>());
         put(4, new ArrayList<>());
@@ -50,12 +43,11 @@ public class WordDatabase{
                if(!dictionary.containsKey(pre)) {
                    dictionary.put(pre, new ArrayList<>());
                }
-
                 dictionary.get(pre).add(new Word(word));
-
             }
         }
     }
+
 
     //This will take the map generated from the LetterGenerator class to filter out the non-valid words
    public HashMap<Integer, List<Word>> dictionaryQuery(HashMap<Integer, List<Word>> combos){

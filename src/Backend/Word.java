@@ -2,15 +2,14 @@ package Backend;
 
 /**
  * This class defines a Word Object
- * a Word object will have three main attributes
+ * a Word object will have two main attributes
  * String word will store the actual word value
- *
  * String pre will store the first 3 characters of the word (for faster reference)
- * Int relevance which will allow us to track which words the user likes more.
- *
  * */
 
 public class Word {
+
+
     private final String word;
     private final String pre;
 

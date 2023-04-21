@@ -91,6 +91,6 @@
             </Text>
          </children>
       </VBox>
-    <Button defaultButton="true" layoutX="276.0" layoutY="332.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: firebrick;" text="Exit" textFill="WHITE" />
+    <Button defaultButton="true" layoutX="276.0" layoutY="332.0" mnemonicParsing="false" onAction="#switchTeam" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: firebrick;" text="Next" textFill="WHITE" />
    </children>
 </AnchorPane>
