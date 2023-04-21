@@ -29,7 +29,6 @@ public class Main{
         Application.launch(UI.class, args);
         //This is setting the Number Object
         //get number and only retrieve the integers
-        System.out.println("Hello");
     }
 
     public Main() throws FileNotFoundException {
@@ -44,6 +43,7 @@ public class Main{
         if(Main.wordList.get(4) != null){
             listSize += Main.wordList.get(4).size();
         }
+
         if(Main.wordList.get(7) != null){
             listSize += Main.wordList.get(7).size();
         }
