@@ -29,7 +29,7 @@ public class Main{
         Application.launch(UI.class, args);
         //This is setting the Number Object
         //get number and only retrieve the integers
-
+        System.out.println("Hello");
     }
 
     public Main() throws FileNotFoundException {
