@@ -62,7 +62,7 @@ public class PhoneNumber {
     public String generateNumberString(String word){
 
         String number =" ";
-        word = word.toUpperCase();
+        word = word.toUpperCase(); 
 
         switch (word.length()) {
             case 3 -> number = this.areaCode + "-" + word.toUpperCase() + "-" + this.suffix;

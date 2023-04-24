@@ -219,10 +219,7 @@ public class UI extends Application{
                 currentSevenLetterCheckBox.setText("");
             }
             loadMoreWords();
-
-
         }
-
     }
     //move to next screen
     public void continueTopTen(ActionEvent event){
