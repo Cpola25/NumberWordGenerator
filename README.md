@@ -20,6 +20,7 @@ This project aims to design and implement a software solution that finds several
 - Interactive UI
 - Result storage
 - Help Screen
+- Result Storage
 - Extensive Database
 
 ### Technologies Used: 

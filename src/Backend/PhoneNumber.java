@@ -1,7 +1,8 @@
 package Backend;
+
 /**
- * This class defines a Phone number object.
- * A Phone number has several attributes which include an Area Code, Prefix, and Suffix
+ * This class defines a PhoneNumber number object.
+ * A PhoneNumber number has several attributes which include an Area Code, Prefix, and Suffix
  * Each of these attributes are defined by the following specifications:
  * Area Code: 3-digit number [200 … 999] except 911
  * Prefix: 3-digit number not beginning with 0 or 1
@@ -12,17 +13,17 @@ package Backend;
  *
  * */
 
-public class Phone {
+public class PhoneNumber {
 
-    private String number = "";
-    private int areaCode ;
-    private int preFix;
-    private int suffix;
+    private final int areaCode ;
+    private final int preFix;
+    private final int suffix;
 
 
     /**************************************************  Constructor  ***************************************************************/
 
-    public Phone(String number) throws InvalidNumberException{
+    // if input is a valid phone number this constructor will initialize a new PhoneNumber object else it will throw an exception
+    public PhoneNumber(String number) throws InvalidNumberException{
         if(number.length() == 10){
             int code = Integer.parseInt(number.substring(0, 3));
             int prefix = Integer.parseInt(number.substring(3, 6));
@@ -41,19 +42,13 @@ public class Phone {
             }
 
             this.suffix = suff;
-            this.number = number;
 
         }else {
-           throw new InvalidNumberException("Number is not long enough: Must be 10 Digits");
+           throw new InvalidNumberException("Number must be 10 Digits with no special symbols");
         }
 
     }
-
     /************************************************** Getters ***************************************************************/
-    public int getAreaCode() {
-        return areaCode;
-    }
-
     public int getPreFix() {
         return preFix;
     }
@@ -61,35 +56,27 @@ public class Phone {
     public int getSuffix() {
         return suffix;
     }
-
-    public String getNumber() {
-        return number;
-    }
-
     /************************************************** Other Methods ***************************************************************/
-    public String generateNumberString(int letterSize, String word){
+
+    // this will help us put a word in the phone number to display it
+    public String generateNumberString(String word){
+
         String number =" ";
+        word = word.toUpperCase();
 
-        switch(letterSize){
-            case 3:
-                number = this.areaCode + "-" + word + "-" + this.suffix;
-                break;
-            case 4:
-                number = this.areaCode + "-" + this.preFix + "-" + word;
-                break;
-            case 7:
-                number = this.areaCode + "-" + word.substring(0, 3) + "-" + word.substring(3,7);
-                break;
-            default:
-                break;
-
+        switch (word.length()) {
+            case 3 -> number = this.areaCode + "-" + word.toUpperCase() + "-" + this.suffix;
+            case 4 -> number = this.areaCode + "-" + this.preFix + "-" + word;
+            case 7 -> number = this.areaCode + "-" + word.substring(0, 3) + "-" + word.substring(3, 7);
+            default -> {
+            }
         }
 
         return number;
     }
-
     /************************************************** Exception  ***************************************************************/
-    class InvalidNumberException extends Exception{
+    //customized exception to track mistakes in users phone number input
+    private static class InvalidNumberException extends Exception{
         public InvalidNumberException(String str){
             super(str);
         }

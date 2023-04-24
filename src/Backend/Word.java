@@ -9,7 +9,6 @@ package Backend;
 
 public class Word {
 
-
     private final String word;
     private final String pre;
 
@@ -20,12 +19,12 @@ public class Word {
 
     /************************************************** Getters ***************************************************************/
 
-    public String getPre() {
-        return pre;
-    }
     public String getWord() {
         return word;
     }
 
-
+    public String getPre() {
+        return pre;
+    }
 }
+

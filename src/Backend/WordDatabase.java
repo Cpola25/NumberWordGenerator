@@ -17,47 +17,52 @@ import java.util.*;
 
 public class WordDatabase{
 
-    // This is where we link our database
-    private final File database = new File("./database.txt");
-    //create a scanner object to read the text file
-    private final Scanner dataReader = new Scanner(database);
     //This is where we will store the words from the database
-    private final HashMap<String, List<Word>> dictionary;
+    private HashMap<String, List<Word>> dictionaryDatabase;
 
     //This will be the list with all the valid words that can be generated from the number
-    private HashMap<Integer, List<Word>> results = new HashMap<>(){{
+    private final HashMap<Integer, List<Word>> wordsFoundInDictionary = new HashMap<>(){{
         put(3, new ArrayList<>());
         put(4, new ArrayList<>());
         put(7, new ArrayList<>());
     }};
 
+
     //Constructor that initializes the dictionary map
     public WordDatabase() throws FileNotFoundException {
-        dictionary = new HashMap<>();
-        while(dataReader.hasNextLine()){
-            String test = dataReader.nextLine();
-            String[] words = test.split("\\s+");
-            for (String word: words) {
-                String pre = word.substring(0, 3);
+        if(ApplicationManager.wordDatabase == null) {
+            System.out.println("New Dictionary Initialized");
+            // This is where we link our database
+            File database = new File("./database.txt");
+            dictionaryDatabase = new HashMap<>();
+            //create a scanner object to read the text file
+            Scanner dataReader = new Scanner(database);
+            while (dataReader.hasNextLine()) {
+                String test = dataReader.nextLine();
+                String[] words = test.split("\\s+");
+                for (String word : words) {
+                    String pre = word.substring(0, 3);
 
-               if(!dictionary.containsKey(pre)) {
-                   dictionary.put(pre, new ArrayList<>());
-               }
-                dictionary.get(pre).add(new Word(word));
+                    if (!dictionaryDatabase.containsKey(pre)) {
+                        dictionaryDatabase.put(pre, new ArrayList<>());
+                    }
+                    dictionaryDatabase.get(pre).add(new Word(word));
+                }
             }
+        }else{
+            System.out.println("Dictionary Already Initialized");
         }
     }
-
 
     //This will take the map generated from the LetterGenerator class to filter out the non-valid words
    public HashMap<Integer, List<Word>> dictionaryQuery(HashMap<Integer, List<Word>> combos){
 
        for (Word letterCombination:combos.get(3)) {
            String currentWordPrefix = letterCombination.getPre();
-           if(dictionary.containsKey(currentWordPrefix)){
-               for (Word dictionaryWord : dictionary.get(currentWordPrefix)) {
+           if(dictionaryDatabase.containsKey(currentWordPrefix)){
+               for (Word dictionaryWord : dictionaryDatabase.get(currentWordPrefix)) {
                    if(Objects.equals(letterCombination.getWord(), dictionaryWord.getWord())){
-                       results.get(3).add(letterCombination);
+                       wordsFoundInDictionary.get(3).add(letterCombination);
                    }
                }
            }
@@ -65,27 +70,26 @@ public class WordDatabase{
 
        for (Word letterCombination:combos.get(4)) {
            String currentWordPrefix = letterCombination.getPre();
-           if(dictionary.containsKey(currentWordPrefix)){
-               for (Word dictionaryWord : dictionary.get(currentWordPrefix)) {
+           if(dictionaryDatabase.containsKey(currentWordPrefix)){
+               for (Word dictionaryWord : dictionaryDatabase.get(currentWordPrefix)) {
                    if(Objects.equals(letterCombination.getWord(), dictionaryWord.getWord())){
-                       results.get(4).add(letterCombination);
+                       wordsFoundInDictionary.get(4).add(letterCombination);
                    }
                }
            }
        }
-
        for (Word letterCombination:combos.get(7)) {
            String currentWordPrefix = letterCombination.getPre();
-           if(dictionary.containsKey(currentWordPrefix)){
-               for (Word dictionaryWord : dictionary.get(currentWordPrefix)) {
+           if(dictionaryDatabase.containsKey(currentWordPrefix)){
+               for (Word dictionaryWord : dictionaryDatabase.get(currentWordPrefix)) {
                    if(Objects.equals(letterCombination.getWord(), dictionaryWord.getWord())){
-                       results.get(7).add(letterCombination);
+                       wordsFoundInDictionary.get(7).add(letterCombination);
                    }
                }
            }
        }
 
-       return results;
+       return wordsFoundInDictionary;
    }
 
 }

@@ -36,7 +36,7 @@
             <Font size="42.0" />
          </font>
       </Text>
-      <Text fill="#f54646" layoutX="182.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Backend:" textAlignment="CENTER" wrappingWidth="117.40625">
+      <Text fill="#f54646" layoutX="182.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full-Stack:" textAlignment="CENTER" wrappingWidth="117.40625">
          <font>
             <Font size="16.0" />
          </font>

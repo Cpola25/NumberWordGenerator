@@ -13,8 +13,8 @@ import java.util.List;
 
 public class LetterGenerator {
 
-    private final HashMap<Integer, List<String>> letters = new HashMap<>() {{
-        put(0, Arrays.asList(" "));
+    private final HashMap<Integer, List<String>> numberLetterMappings = new HashMap<>() {{
+        put(0, List.of(" "));
         put(1, Arrays.asList("/", ".", "@"));
         put(2, Arrays.asList("a", "b", "c"));
         put(3, Arrays.asList("d", "e", "f"));
@@ -26,46 +26,47 @@ public class LetterGenerator {
         put(9, Arrays.asList("w", "x", "y", "z"));
     }};
 
-    private final HashMap<Integer, List<Word>> combinations= new HashMap<>(){{
+    private final HashMap<Integer, List<Word>> letterCombinations = new HashMap<>(){{
         put(3, new ArrayList<>());
         put(4, new ArrayList<>());
         put(7, new ArrayList<>());
     }};
 
-    public HashMap<Integer, List<Word>> getCombinations() {
-        return combinations;
-    }
 
-    public LetterGenerator(Phone number) {
+    public LetterGenerator(PhoneNumber number) {
         combinationGenerator(number);
     }
 
-    private void combinationGenerator(Phone number) {
+    public HashMap<Integer, List<Word>> getLetterCombinations() {
+        return letterCombinations;
+    }
+
+    private void combinationGenerator(PhoneNumber number) {
         //suffix Combinations
         int numberPrefix = number.getPreFix();
         int numberSuffix = number.getSuffix();
 
-        for (String s : letters.get(numberPrefix / 100)) {
-            for (String str : letters.get((numberPrefix % 100) / 10)) {
-                for (String sr : letters.get(numberPrefix % 10)) {
-                    this.combinations.get(3).add(new Word(s + str + sr));
+        for (String s : numberLetterMappings.get(numberPrefix / 100)) {
+            for (String str : numberLetterMappings.get((numberPrefix % 100) / 10)) {
+                for (String sr : numberLetterMappings.get(numberPrefix % 10)) {
+                    this.letterCombinations.get(3).add(new Word(s + str + sr));
                 }
             }
         }
 
         //prefix Combinations
-        for (String s : letters.get(numberSuffix / 1000)) {
-            for (String str : letters.get((numberSuffix % 1000) / 100)) {
-                for (String sr : letters.get((numberSuffix % 100) / 10)) {
-                    for (String st : letters.get(numberSuffix % 10)) {
-                        this.combinations.get(4).add(new Word(s + str + sr + st));
+        for (String s : numberLetterMappings.get(numberSuffix / 1000)) {
+            for (String str : numberLetterMappings.get((numberSuffix % 1000) / 100)) {
+                for (String sr : numberLetterMappings.get((numberSuffix % 100) / 10)) {
+                    for (String st : numberLetterMappings.get(numberSuffix % 10)) {
+                        this.letterCombinations.get(4).add(new Word(s + str + sr + st));
                     }
                 }
             }
         }
-        for (Word threeLetterWord : combinations.get(3)) {
-            for (Word fourLetterWord : combinations.get(4)) {
-                this.combinations.get(7).add(new Word(threeLetterWord.getWord() + fourLetterWord.getWord()));
+        for (Word threeLetterWord : letterCombinations.get(3)) {
+            for (Word fourLetterWord : letterCombinations.get(4)) {
+                this.letterCombinations.get(7).add(new Word(threeLetterWord.getWord() + fourLetterWord.getWord()));
             }
         }
 

@@ -16,9 +16,9 @@
             <Button defaultButton="true" layoutX="267.0" layoutY="306.0" mnemonicParsing="false" onAction="#continueToDisplay" style="-fx-background-color: firebrick;" text="Continue" textFill="WHITE" />
             <Pane layoutX="98.0" layoutY="47.0" prefHeight="272.0" prefWidth="420.0">
                <children>
-                  <Text fx:id="numberOfResults" fill="#9e0202" layoutX="131.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="127.99951171875">
+                  <Text fx:id="numberOfResults" fill="#9e0202" layoutX="-53.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="508.99951171875">
                      <font>
-                        <Font size="59.0" />
+                        <Font size="44.0" />
                      </font>
                   </Text>
                   <Text layoutX="70.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congrats We Found " wrappingWidth="250.99951171875">
