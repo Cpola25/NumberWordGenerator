@@ -8,7 +8,7 @@ Role  | Name
 Full-Stack:   | Lizbeth Trujillo
 Front-end:  | Jessica Rodriguez
 Database:  | Victoria Kitchen
-Test Automation: | Nicholas Victoria
+Test Automation: | Nicolas Victoria
 
 ### Description:
 
