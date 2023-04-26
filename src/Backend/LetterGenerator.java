@@ -26,12 +26,7 @@ public class LetterGenerator {
         put(9, Arrays.asList("w", "x", "y", "z"));
     }};
 
-    private final HashMap<Integer, List<Word>> letterCombinations = new HashMap<>(){{
-        put(3, new ArrayList<>());
-        put(4, new ArrayList<>());
-        put(7, new ArrayList<>());
-    }};
-
+    private  HashMap<Integer, List<Word>> letterCombinations;
 
     public LetterGenerator(PhoneNumber number) {
         combinationGenerator(number);
@@ -42,6 +37,14 @@ public class LetterGenerator {
     }
 
     private void combinationGenerator(PhoneNumber number) {
+
+        //will reset list if it is not empty
+        letterCombinations = new HashMap<>(){{
+            put(3, new ArrayList<>());
+            put(4, new ArrayList<>());
+            put(7, new ArrayList<>());
+        }};
+
         //suffix Combinations
         int numberPrefix = number.getPreFix();
         int numberSuffix = number.getSuffix();
@@ -71,7 +74,10 @@ public class LetterGenerator {
         }
 
     }
+
 }
+
+
 //if the number has a 0 or 1 then we know it won't generate a word
 //So we are gonna check for that first
 

@@ -53,7 +53,7 @@ public class LogContent {
             FileWriter logToResults = new FileWriter(results, true);
             StringBuilder input = new StringBuilder();
             input.append("""
-                    ----------------------------Valid Words for your number------------------------------
+                    ----------------------------All Words Found for Your Number------------------------------
 
                     """);
             int counter = 1;
@@ -99,7 +99,7 @@ public class LogContent {
             StringBuilder input = new StringBuilder();
             int counter = 1;
             input.append("""
-                    -------------------------------Your favorite Words------------------------------------
+                    -------------------------------Your Favorite Words------------------------------------
 
                     """);
             for (String phone:finalTopTen) {

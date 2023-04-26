@@ -20,14 +20,6 @@ public class WordDatabase{
     //This is where we will store the words from the database
     private HashMap<String, List<Word>> dictionaryDatabase;
 
-    //This will be the list with all the valid words that can be generated from the number
-    private final HashMap<Integer, List<Word>> wordsFoundInDictionary = new HashMap<>(){{
-        put(3, new ArrayList<>());
-        put(4, new ArrayList<>());
-        put(7, new ArrayList<>());
-    }};
-
-
     //Constructor that initializes the dictionary map
     public WordDatabase() throws FileNotFoundException {
         if(ApplicationManager.wordDatabase == null) {
@@ -56,6 +48,13 @@ public class WordDatabase{
 
     //This will take the map generated from the LetterGenerator class to filter out the non-valid words
    public HashMap<Integer, List<Word>> dictionaryQuery(HashMap<Integer, List<Word>> combos){
+
+       //This will be the list with all the valid words that can be generated from the number
+       HashMap<Integer, List<Word>> wordsFoundInDictionary = new HashMap<>() {{
+           put(3, new ArrayList<>());
+           put(4, new ArrayList<>());
+           put(7, new ArrayList<>());
+       }};
 
        for (Word letterCombination:combos.get(3)) {
            String currentWordPrefix = letterCombination.getPre();

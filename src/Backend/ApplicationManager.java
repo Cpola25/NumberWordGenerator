@@ -1,4 +1,5 @@
 package Backend;
+
 import UI.UI;
 import javafx.application.Application;
 
@@ -30,7 +31,7 @@ public class ApplicationManager {
 
     private static LogContent logger;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         //Launches the Application
         Application.launch(UI.class, args);
     }
@@ -82,6 +83,11 @@ public class ApplicationManager {
 
     public static LogContent getLogger() {
         return logger;
+    }
+
+    public static void appReset(){
+        ApplicationManager.phoneNumber = null;
+        listSize = 0;
     }
 }
 

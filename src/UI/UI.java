@@ -44,7 +44,7 @@ public class UI extends Application{
     private Scene scene;
     private Parent root;
 
-    private static final ArrayList<String> finalTopTenWords = new ArrayList<>();
+    private static ArrayList<String> finalTopTenWords = new ArrayList<>();
 
     /************************************************** Switch Screen Methods ***************************************************************/
 
@@ -72,6 +72,14 @@ public class UI extends Application{
     }
     public void switchTeam(ActionEvent event)throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("./Screens/Credits.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToEnterNumber(ActionEvent event)throws IOException {
+        ApplicationManager.appReset();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("./Screens/EnterNumber.fxml")));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -169,14 +177,8 @@ public class UI extends Application{
     }
 
     public void refreshList(ActionEvent event){
-
         //we are garuanteed to have words at this stage to process.
         //When this button is push it means that we have to search all the checkboxes to see which ones have been selected.
-        if((ApplicationManager.getListSize()) < 11){
-
-            continueTopTen(event);
-
-        }else{
 
             for(int i = 0; i < 10; i++){
                 //gets child checkboxes from the VBox parent
@@ -209,19 +211,30 @@ public class UI extends Application{
                 }else{
                     currentSevenLetterCheckBox.setSelected(false);
                 }
+
                 currentThreeLetterCheckBox.setText("");
                 currentFourLetterCheckBox.setText("");
                 currentSevenLetterCheckBox.setText("");
             }
 
+        if((ApplicationManager.getListSize()) < 11) {
 
+            for (Word t : ApplicationManager.numberValidWordResults.get(3)) {
+                finalTopTenWords.add(t.getWord());
+            }
+            for (Word f : ApplicationManager.numberValidWordResults.get(4)) {
+                finalTopTenWords.add(f.getWord());
+            }
+            for (Word s : ApplicationManager.numberValidWordResults.get(7)) {
+                finalTopTenWords.add(s.getWord());
+            }
+            continueTopTen(event);
+
+        }else {
             loadMoreWords();
         }
+
     }
-
-
-
-
 
     //move to next screen
     public void continueTopTen(ActionEvent event){
@@ -249,6 +262,7 @@ public class UI extends Application{
                 currentTextField.setText(ApplicationManager.phoneNumber.generateNumberString(finalTopTenWords.get(i)));
             }
         }
+        UI.finalTopTenWords.clear();
     }
 
 
