@@ -15,6 +15,7 @@ package Backend;
 
 public class PhoneNumber {
 
+    private String number;
     private final int areaCode ;
     private final int preFix;
     private final int suffix;
@@ -40,11 +41,10 @@ public class PhoneNumber {
             }else {
                 throw new InvalidNumberException("Invalid Prefix: cannot start with 0 or 1 ");
             }
-
             this.suffix = suff;
-
+            this.number = number;
         }else {
-           throw new InvalidNumberException("Number must be 10 Digits with no special symbols");
+            throw new InvalidNumberException("Number must be 10 Digits with no special symbols");
         }
 
     }
@@ -56,13 +56,15 @@ public class PhoneNumber {
     public int getSuffix() {
         return suffix;
     }
+    public String getNumber(){
+        return number;
+    }
     /************************************************** Other Methods ***************************************************************/
 
     // this will help us put a word in the phone number to display it
     public String generateNumberString(String word){
-
         String number =" ";
-        word = word.toUpperCase(); 
+        word = word.toUpperCase();
 
         switch (word.length()) {
             case 3 -> number = this.areaCode + "-" + word.toUpperCase() + "-" + this.suffix;
@@ -82,3 +84,4 @@ public class PhoneNumber {
         }
     }
 }
+

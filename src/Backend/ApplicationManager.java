@@ -1,14 +1,13 @@
 package Backend;
-
 import UI.UI;
 import javafx.application.Application;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
 public class ApplicationManager {
-
 
     //Declares an instance of WordDatabase object that will let access the word database
     public static WordDatabase wordDatabase;
@@ -29,11 +28,11 @@ public class ApplicationManager {
     //Stores the size of the numberValidWordResults
     private static int listSize;
 
+    private static LogContent logger;
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         //Launches the Application
         Application.launch(UI.class, args);
-
     }
 
     /************************************************** Setters ***************************************************************/
@@ -43,13 +42,14 @@ public class ApplicationManager {
 
         //queries the database and initializes numberValidWordResults list
         ApplicationManager.numberValidWordResults = wordDatabase.dictionaryQuery(combinations.getLetterCombinations());
-
+        //will add our results to our file
         //will get the starting size of the list so we can display on the congrats screen
         if(ApplicationManager.numberValidWordResults.get(3) != null){
             setListSize(getListSize() + ApplicationManager.numberValidWordResults.get(3).size());
         }
         if(ApplicationManager.numberValidWordResults.get(4) != null){
             setListSize(getListSize() + ApplicationManager.numberValidWordResults.get(4).size());
+
         }
 
         if(ApplicationManager.numberValidWordResults.get(7) != null){
@@ -57,7 +57,6 @@ public class ApplicationManager {
         }
 
     }
-
     // will be called by the UI class to set the combinations list
     public static void setCombinations() {
         ApplicationManager.combinations = new LetterGenerator(ApplicationManager.phoneNumber);
@@ -74,6 +73,15 @@ public class ApplicationManager {
 
     public static void setListSize(int listSize) {
         ApplicationManager.listSize = listSize;
+    }
+
+    public static void setLogContent(String number) throws IOException {
+        logger = new LogContent(number);
+        logger.writeToResults(numberValidWordResults);
+    }
+
+    public static LogContent getLogger() {
+        return logger;
     }
 }
 

@@ -40,10 +40,11 @@ import java.util.Objects;
 
 public class UI extends Application{
 
-        private Stage stage;
-        private Scene scene;
-        private Parent root;
-        private static final ArrayList<String> finalTopTenWords = new ArrayList<>();
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    private static final ArrayList<String> finalTopTenWords = new ArrayList<>();
 
     /************************************************** Switch Screen Methods ***************************************************************/
 
@@ -76,9 +77,9 @@ public class UI extends Application{
         stage.setScene(scene);
         stage.show();
     }
-   /************************************************** Enter Number Screen ***************************************************************/
+    /************************************************** Enter Number Screen ***************************************************************/
 
-   @FXML
+    @FXML
     private TextField number;
     @FXML
     private Text errorMessage;
@@ -89,6 +90,7 @@ public class UI extends Application{
             ApplicationManager.setPhoneNumber(new PhoneNumber(number.getText())); //Sets PhoneNumber Object in the ApplicationManager class
             ApplicationManager.setCombinations(); // Sets the combinations object in the ApplicationManager class
             ApplicationManager.setWordList(); // Sets the wordList object in the ApplicationManager class
+            ApplicationManager.setLogContent(number.getText());
             switchToCongrats(event); //Switched the screen to the Congrats page
         }catch(Exception e){
             errorMessage.setText(String.valueOf(e)); // if there is an error then it will be displayed to help the user update their input
@@ -101,7 +103,7 @@ public class UI extends Application{
 
     //This will let us get the total number of matched that were found so we can display
     public void setTotal(){
-            numberOfResults.setText( Integer.toString(ApplicationManager.getListSize()));
+        numberOfResults.setText( Integer.toString(ApplicationManager.getListSize()));
     }
 
     public void continueToDisplay(ActionEvent event){
@@ -136,7 +138,7 @@ public class UI extends Application{
     private List<Node> fourLetterVboxNodes;
     private List<Node> sevenLetterVboxNodes;
 
-
+    //Looks through our list of words so it can refill the checkboxes
     public void loadMoreWords(){
         ArrayList<Word> threeLetterValidWords = (ArrayList<Word>) ApplicationManager.numberValidWordResults.get(3);
         ArrayList<Word> fourLetterValidWords = (ArrayList<Word>) ApplicationManager.numberValidWordResults.get(4);
@@ -147,7 +149,6 @@ public class UI extends Application{
         sevenLetterVboxNodes = sevenLetter.getChildren();
 
         for(int i = 0; i < 10; i++){
-
             //gets child checkboxes from the VBox parent
             CheckBox currentThree = (CheckBox) threeLetterVboxNodes.get(i);
             if(i < threeLetterValidWords.size()){
@@ -166,20 +167,12 @@ public class UI extends Application{
             }
         }
     }
+
     public void refreshList(ActionEvent event){
-        //if the list is less than 10 we want to make all remaining elements in the finalTopTen
 
+        //we are garuanteed to have words at this stage to process.
+        //When this button is push it means that we have to search all the checkboxes to see which ones have been selected.
         if((ApplicationManager.getListSize()) < 11){
-
-            for (Word t: ApplicationManager.numberValidWordResults.get(3)) {
-                finalTopTenWords.add(t.getWord());
-            }
-            for (Word f: ApplicationManager.numberValidWordResults.get(4)) {
-                finalTopTenWords.add(f.getWord());
-            }
-            for (Word s: ApplicationManager.numberValidWordResults.get(7)) {
-                finalTopTenWords.add(s.getWord());
-            }
 
             continueTopTen(event);
 
@@ -188,16 +181,18 @@ public class UI extends Application{
             for(int i = 0; i < 10; i++){
                 //gets child checkboxes from the VBox parent
                 CheckBox currentThreeLetterCheckBox = (CheckBox) threeLetterVboxNodes.get(i);
+                CheckBox currentFourLetterCheckBox = (CheckBox) fourLetterVboxNodes.get(i);
+                CheckBox currentSevenLetterCheckBox = (CheckBox) sevenLetterVboxNodes.get(i);
+
                 //if the box is not selected and it has text remove it from word list
                 if(!currentThreeLetterCheckBox.isSelected() && !Objects.equals(currentThreeLetterCheckBox.getText(), "")){
                     ApplicationManager.numberValidWordResults.get(3).removeIf(w -> Objects.equals(currentThreeLetterCheckBox.getAccessibleText(), w.getWord()));
                     ApplicationManager.setListSize(ApplicationManager.getListSize() - 1);
                     //currentThreeLetterCheckBox.setText("");
-                }else{
+                }else if (currentThreeLetterCheckBox.isSelected()){
+
                     currentThreeLetterCheckBox.setSelected(false);
                 }
-
-                CheckBox currentFourLetterCheckBox = (CheckBox) fourLetterVboxNodes.get(i);
                 if(!currentFourLetterCheckBox.isSelected() && !Objects.equals(currentFourLetterCheckBox.getText(), "")){
                     ApplicationManager.numberValidWordResults.get(4).removeIf(w -> Objects.equals(currentFourLetterCheckBox.getAccessibleText(), w.getWord()));
                     ApplicationManager.setListSize(ApplicationManager.getListSize() - 1);
@@ -206,7 +201,7 @@ public class UI extends Application{
                     currentFourLetterCheckBox.setSelected(false);
                 }
 
-                CheckBox currentSevenLetterCheckBox = (CheckBox) sevenLetterVboxNodes.get(i);
+
                 if(!currentSevenLetterCheckBox.isSelected() && !Objects.equals(currentSevenLetterCheckBox.getText(), "")){
                     ApplicationManager.numberValidWordResults.get(7).removeIf(w -> Objects.equals(currentSevenLetterCheckBox.getAccessibleText(), w.getWord()));
                     ApplicationManager.setListSize(ApplicationManager.getListSize() - 1);
@@ -218,9 +213,16 @@ public class UI extends Application{
                 currentFourLetterCheckBox.setText("");
                 currentSevenLetterCheckBox.setText("");
             }
+
+
             loadMoreWords();
         }
     }
+
+
+
+
+
     //move to next screen
     public void continueTopTen(ActionEvent event){
         try{
@@ -237,10 +239,13 @@ public class UI extends Application{
     private VBox topTen;
 
     public void displayTen(){
-       List<Node> topTenVBoxNodes = topTen.getChildren();
+        List<Node> topTenVBoxNodes = topTen.getChildren();
+        ApplicationManager.getLogger().writeToResults(finalTopTenWords);
+
         for(int i = 0; i < topTenVBoxNodes.size(); i++){
             Text currentTextField = (Text) topTenVBoxNodes.get(i);
             if(i < finalTopTenWords.size()) {
+
                 currentTextField.setText(ApplicationManager.phoneNumber.generateNumberString(finalTopTenWords.get(i)));
             }
         }
@@ -253,6 +258,8 @@ public class UI extends Application{
         Platform.exit();
     }
     /**************************************************      Other     ***************************************************************/
+
+
     @Override
     public void start(Stage stage) throws Exception {
         try {
@@ -265,8 +272,8 @@ public class UI extends Application{
         }
     }
 
-public static void main(String[] args){
+    public static void main(String[] args){
         launch(args);
-}
+    }
 
 }
