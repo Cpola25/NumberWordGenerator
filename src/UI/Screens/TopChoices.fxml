@@ -39,47 +39,47 @@
       </Text>
       <VBox fx:id="topTen" layoutX="204.0" layoutY="68.0" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Text fill="#f5f5f5" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="163.21630859375">
+            <Text fill="#f5f5f5" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="175.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <Text fill="#f5f5f5" layoutX="10.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="164.21630859375">
+            <Text fill="#f5f5f5" layoutX="10.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="175.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <Text fill="#f5f5f5" layoutX="10.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="167.21630859375">
+            <Text fill="#f5f5f5" layoutX="10.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="175.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="169.21630859375">
+            <Text fill="#f5f5f5" layoutX="10.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="175.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <Text fill="#f5f5f5" layoutX="10.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="170.21630859375">
+            <Text fill="#f5f5f5" layoutX="10.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="175.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <Text fill="#f5f5f5" layoutX="10.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="172.21630859375">
+            <Text fill="#f5f5f5" layoutX="10.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="175.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <Text fill="#f5f5f5" layoutX="10.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="173.21630859375">
+            <Text fill="#f5f5f5" layoutX="10.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="175.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <Text fill="#f5f5f5" layoutX="10.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="173.21630859375">
+            <Text fill="#f5f5f5" layoutX="10.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="175.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
             </Text>
-            <Text fill="#f5f5f5" layoutX="10.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="173.21630859375">
+            <Text fill="#f5f5f5" layoutX="10.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="175.21630859375">
                <font>
                   <Font size="21.0" />
                </font>
@@ -91,6 +91,6 @@
             </Text>
          </children>
       </VBox>
-    <Button defaultButton="true" layoutX="276.0" layoutY="332.0" mnemonicParsing="false" onAction="#switchTeam" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: firebrick;" text="Next" textFill="WHITE" />
+    <Button defaultButton="true" layoutX="263.0" layoutY="340.0" mnemonicParsing="false" onAction="#switchTeam" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: firebrick;" text="Next" textFill="WHITE" />
    </children>
 </AnchorPane>
