@@ -45,7 +45,7 @@ To get started with our project NumberPhrase, please follow these steps:
 - Follow the menu-driven interface to enter a phone number and generate a list of possible English words to represent the number
 - If you get more than 10 results, you will be prompted to select your favorite and narrow down your top choices. But don't worry all your results will be saved so you can go back later!
 - After each number you submit your results should be logged in a unique text file in the Results folder along with a date and timestamp
-- -For an example output you can find results for entering the number 4093392255 under the Results folder in the Number subFolder
+- For an example output you can find results for entering the number 4093392255 under the Results folder in the Number subFolder
 - Note as we are still expanding our database, your number may not have any words. See Project report for more information on limitations. 
 
 #### Documentation
