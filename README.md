@@ -43,6 +43,12 @@ To get started with our project NumberPhrase, please follow these steps:
 
 - Run the application using your preferred Java IDE or through the command line
 - Follow the menu-driven interface to enter a phone number and generate a list of possible English words to represent the number
+  - Phone Number Entry requirements:
+
+    1. Must contain a 10 digit phone number {e.g. 8552671029}
+    2. Must not contain letters
+    3. Must not contain special characters {e.g. %, ^, -, =,...}
+    4. Must not contain spaces, commas, or periods
 - If you get more than 10 results, you will be prompted to select your favorite and narrow down your top choices. But don't worry all your results will be saved so you can go back later!
 - After each number you submit your results should be logged in a unique text file in the Results folder along with a date and timestamp
 - For an example output you can find results for entering the number 4093392255 under the Results folder in the Number subFolder
