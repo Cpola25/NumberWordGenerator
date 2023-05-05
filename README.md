@@ -19,15 +19,12 @@ This project aims to design and implement a software solution that finds several
 
 - Interactive UI
 - Result storage
-- Help Screen
-- Result Storage
 - Extensive Database
 
 ### Technologies Used: 
 
 - Implemented using Java
 - UI implemented using JavaFx
-- (whatever test automation software we use)
 
 ### Getting Started:
 
