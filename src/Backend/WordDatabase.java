@@ -33,12 +33,14 @@ public class WordDatabase{
                 String test = dataReader.nextLine();
                 String[] words = test.split("\\s+");
                 for (String word : words) {
-                    String pre = word.substring(0, 3);
 
-                    if (!dictionaryDatabase.containsKey(pre)) {
-                        dictionaryDatabase.put(pre, new ArrayList<>());
+                    if(word.length() !=0){
+                        String pre = word.substring(0, 3);
+                        if (!dictionaryDatabase.containsKey(pre)) {
+                            dictionaryDatabase.put(pre, new ArrayList<>());
+                        }
+                        dictionaryDatabase.get(pre).add(new Word(word));
                     }
-                    dictionaryDatabase.get(pre).add(new Word(word));
                 }
             }
         }else{

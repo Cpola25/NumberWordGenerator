@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ApplicationManager {
-
     //Declares an instance of WordDatabase object that will let access the word database
     public static WordDatabase wordDatabase;
     static {
