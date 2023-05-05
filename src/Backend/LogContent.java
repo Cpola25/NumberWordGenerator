@@ -118,13 +118,48 @@ public class LogContent {
         }
     }
 
-    public void writeToTesting(String input){
+    public void writeToTesting(HashMap<Integer, List<Word>> list){
         try {
-            FileWriter logToTesting = new FileWriter(testing,true);
+            FileWriter logToResults = new FileWriter(results, true);
+            StringBuilder input = new StringBuilder();
+            input.append("""
+                    ----------------------------All Words Found for Your Number------------------------------
+
+                    """);
+            int counter = 1;
+            for (Word w:list.get(3)) {
+                input.append(ApplicationManager.phoneNumber.generateNumberString(w.getWord())).append(" ");
+                if(counter %7 == 0){
+                    input.append("\n");
+                }
+                counter ++;
+            }
+
+            for (Word w:list.get(4)) {
+                input.append(ApplicationManager.phoneNumber.generateNumberString(w.getWord())).append(" ");
+                if(counter %7 == 0){
+                    input.append("\n");
+                }
+                counter++;
+            }
+
+            for (Word w:list.get(7)) {
+                input.append(ApplicationManager.phoneNumber.generateNumberString(w.getWord())).append(" ");
+                if(counter %7 == 0){
+                    input.append("\n");
+                }
+                counter++;
+            }
+
+            input.append("""
+
+                    """);
+            logToResults.write(input.toString());
+            logToResults.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 }
