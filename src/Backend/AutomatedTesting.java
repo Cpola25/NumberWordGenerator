@@ -24,7 +24,7 @@ public class AutomatedTesting {
                      LogContent testingLogger;
                      try {
                          currentNumber = new PhoneNumber(word);
-                         testingLogger = new LogContent(word);
+                         testingLogger = new LogContent(word, true);
                      } catch (Exception e) {
                          e.printStackTrace();
                          continue;

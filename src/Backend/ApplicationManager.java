@@ -77,7 +77,7 @@ public class ApplicationManager {
     }
 
     public static void setLogContent(String number) throws IOException {
-        logger = new LogContent(number);
+        logger = new LogContent(number, false);
         logger.writeToResults(numberValidWordResults);
     }
 

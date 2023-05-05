@@ -17,23 +17,28 @@ import java.util.List;
  *
  * */
 public class LogContent {
-    private final  File results;
+    private File results;
     private final File testing = new File("./Results/Tests/testingLogs.txt");
 
-    public LogContent(String number) throws IOException {
-        //if there is no data for the number then we make a new file to log the results
-        results = new File("./Results//Numbers/" + number +".txt");
 
-        if(!results.exists()){
-            results.createNewFile();
-        }
+    public LogContent(String number, Boolean test) throws IOException {
 
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        writeToResults("Number:  " + number + "                                            Date:  " + dtf.format(now)+ "\n" + "\n");
+        if(!test) {
+            //if there is no data for the number then we make a new file to log the results
+            results = new File("./Results//Numbers/" + number + ".txt");
 
-        if(!testing.exists()){
-            testing.createNewFile();
+            if (!results.exists()) {
+                results.createNewFile();
+            }
+
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+            writeToResults("Number:  " + number + "                                            Date:  " + dtf.format(now) + "\n" + "\n");
+
+        }else{
+            if (!testing.exists()) {
+                testing.createNewFile();
+            }
         }
     }
 
@@ -120,8 +125,14 @@ public class LogContent {
 
     public void writeToTesting(HashMap<Integer, List<Word>> list){
         try {
-            FileWriter logToResults = new FileWriter(results, true);
+
+            FileWriter logToResults = new FileWriter(testing, true);
             StringBuilder input = new StringBuilder();
+
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+            input.append("Number:  " + ApplicationManager.phoneNumber.getNumber() + "                                            Date:  " + dtf.format(now)+ "\n" + "\n");
+
             input.append("""
                     ----------------------------All Words Found for Your Number------------------------------
 
