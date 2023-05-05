@@ -53,6 +53,11 @@ To get started with our project NumberPhrase, please follow these steps:
 - For an example output you can find results for entering the number 4093392255 under the Results folder in the Number subFolder
 - Note as we are still expanding our database, your number may not have any words. See Project report for more information on limitations. 
 
+#### Bulkloading
+- If you want to parse more than one input at a time go to the BulkLoading Folder and modify the BulkLoadingDocument.txt to include all of your desired numbers. 
+- Numbers should only be separated by a space and follow the Phone Number Entry requirements listed above. 
+- Next, run the main class located in AutomatedTesting.java instead of the Application Manager
+- Results will be appended to the testingLog.txt located in Results folder under Tests. 
 #### Documentation
 
 - The project includes a use-case diagram, class diagram, interaction diagram, state chart, and activity diagram to help understand its design and functionality.
